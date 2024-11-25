@@ -1,0 +1,24 @@
+001.EX
+
+Claro! Que tal você criar uma nova rota em seu servidor que retorne um JSON com informações sobre um livro?
+
+Aqui está o que você pode fazer:
+
+Crie uma nova rota chamada /livro.
+Quando essa rota for acessada, ela deve retornar um objeto JSON com as seguintes informações:
+Título do livro
+Autor do livro
+Ano de publicação
+Gênero
+Por exemplo, o JSON poderia ser assim:
+
+json
+
+{
+  "titulo": "O Senhor dos Anéis",
+  "autor": "J.R.R. Tolkien",
+  "ano": 1954,
+  "genero": "Fantasia"
+}
+
+Lembre-se de usar o método res.status(200).send() para enviar a resposta. Boa sorte e divirta-se programando! Se precisar de ajuda, estou aqui!
