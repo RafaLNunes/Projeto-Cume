@@ -1,0 +1,13 @@
+NOME: "OsCumeInteressam"
+Ideia:
+
+Fazer um sistema com varias montanhas e picos que mostrem info sobre elas
+
+Cores:
+
+Verde
+Vermelho
+Cinza
+Preto
+Branco
+
