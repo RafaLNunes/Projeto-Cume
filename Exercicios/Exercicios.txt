@@ -22,3 +22,14 @@ json
 }
 
 Lembre-se de usar o método res.status(200).send() para enviar a resposta. Boa sorte e divirta-se programando! Se precisar de ajuda, estou aqui!
+
+002.EX
+
+Claro! Que tal você criar uma nova rota na sua aplicação que retorne apenas um post aleatório da lista de posts que você já criou?
+
+Para isso, você pode seguir os seguintes passos:
+
+Crie uma nova rota, por exemplo, /posts/random.
+Dentro dessa rota, utilize uma função para gerar um número aleatório que corresponda a um dos IDs dos posts existentes.
+Retorne o post correspondente a esse ID aleatório.
+Dessa forma, você vai praticar a criação de novas rotas e a manipulação de arrays em JavaScript. Boa sorte e divirta-se! Se precisar de ajuda, estou aqui! 😊
