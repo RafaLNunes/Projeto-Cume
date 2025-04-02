@@ -1,4 +1,7 @@
 import express from "express"; // Importa do node_modules dentro de express o sitema 'express'
+import conectarAoBanco from "./SRC/Config/dbConfig.js";
+
+const conexao = await conectarAoBanco(process.env.STRING_CON);
 
 // Teste de dados em memoria local, assim não gera a necessidade de complicações
 const objetos_Cume_Mock = [
@@ -113,20 +116,28 @@ app.use(express.json());
 app.listen(3000, 
     () => {console.log("Hello Word!!\nServer Ouvindo.....")
 });
-//gera uma resposta aqueles que se conectam, pegando pelo caminho /Cumes
-app.get("/Cumes", (req, res)=>{
-    res.status(200).json(objetos_Cume_Mock); //send("Conectado com sucesso ao Sistem:<br>OsCumeInteressam") agora ele convertre o array em um json e mostra
-});
 
-function RetornaCumeExpecificp(id){
-    return objetos_Cume_Mock.findIndex((objt_cume) => {
-        return objt_cume.id === Number(id)
-    })
+async function PopularDaDB() {
+    const db = conexao.db("OsCumes_Dados")
+    const colect = db.collection("mountains")
+    return colect.find().toArray()
 }
 
-app.get("/Cumes/:id", (req, res) =>{
-    const index = RetornaCumeExpecificp(req.params.id);
-    res.json(objetos_Cume_Mock[index]);
+//gera uma resposta aqueles que se conectam, pegando pelo caminho /Cumes
+app.get("/Cumes", async (req, res) => {
+    const populararray = await PopularDaDB()
+    res.status(200).json(populararray)//send("Conectado com sucesso ao Sistem:<br>OsCumeInteressam") agora ele convertre o array em um json e mostra
 });
+
+// function RetornaCumeExpecificp(id){
+//     return objetos_Cume_Mock.findIndex((objt_cume) => {
+//         return objt_cume.id === Number(id)
+//     })
+// }
+
+// app.get("/Cumes/:id", (req, res) =>{
+//     const index = RetornaCumeExpecificp(req.params.id);
+//     res.json(objetos_Cume_Mock[index]);
+// });
 
 
